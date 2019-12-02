@@ -1,5 +1,5 @@
-import {createAppContainer}  from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+// import {createAppContainer}  from '@react-navigation';
+// import {createStackNavigator} from 'react-navigation-stack';
 import Home from '../screens/home';
 import Login from '../screens/login';
 import MyRecipes from '../screens/my-recipes';
@@ -8,15 +8,19 @@ import Resources from '../screens/resources';
 import Search from '../screens/search';
 import SignUp from '../screens/sign-up';
 
-const MainNavigator = createStackNavigator({
-    Home: {screen: Home},
-    Login: {screen: Login},
-    MyRecipes: {screen: MyRecipes},
-    RecipeSingle: {screen: RecipeSingle},
-    Resources: {screen: Resources},
-    Search: {screen: Search},
-    SignUp: {screen: SignUp},
-});
+// const MainNavigator = createStackNavigator(
+//     {
+//         Home: {screen: Home},
+//         Login: {screen: Login},
+//         MyRecipes: {screen: MyRecipes},
+//         RecipeSingle: {screen: RecipeSingle},
+//         Resources: {screen: Resources},
+//         Search: {screen: Search},
+//         SignUp: {screen: SignUp},
+//     },
+//     {
+//         initialRouteName: 'Home',
+//     }
+// );
 
-// createAppContainer
-// export
+// export default createAppContainer(MainNavigator);
