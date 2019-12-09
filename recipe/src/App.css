@@ -2,6 +2,37 @@
   text-align: center;
 }
 
+.Fav-Btn {
+  background-color: lightgray !important;
+  float: center;
+  color: red;
+  text-align: center;
+  padding: 10px 48px;
+}
+.Fav-Btn.active {
+  background-color: gold !important;
+}
+
+.circular--portrait {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
+/* .Fav-Star {
+  float: center;
+  color: gold;
+  text-align: center;
+  padding: 5px 6px;
+} */
+
 /* Navigator {
   display: flex;
   
