@@ -4,16 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 8080;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
-const config = require("../config")
+
 module.exports.bcrypt = bcrypt;
 
 app.use(cors());
 app.use(bodyParser.json());
-console.log(config.dbLink)
-const dbRoute = config.dbLink;
+
+const dbRoute = "mongodb+srv://sam:samchen1131@cluster0-xwslr.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', function() {
