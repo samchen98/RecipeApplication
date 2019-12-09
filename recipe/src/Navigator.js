@@ -16,14 +16,18 @@ export default class Navigator extends React.Component {
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/my-recipes">My Recipes</Nav.Link>
                     <Nav.Link href="/resources">Resources</Nav.Link>
+                    <Nav.Link href="/create">Add Your Own!</Nav.Link>
                 </Nav>
                 <Nav className = "navbar-right">
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/sign-up">Sign-up</Nav.Link>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Search</Button>
-                    </Form>
+                    <Nav.Link href="/login">
+                        <Button variant="outline-secondary">Login</Button>
+                    </Nav.Link>
+                    <Nav.Link href="/sign-up">
+                        <Button variant="outline-dark">Sign-up</Button>
+                    </Nav.Link>
+                    <Nav.Link href="/search">
+                        <Button variant="warning">Search</Button>
+                    </Nav.Link>
                 </Nav>
             </Navbar>
             <Routes />

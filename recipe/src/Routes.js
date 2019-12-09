@@ -7,6 +7,7 @@ import RecipeSingle from './screens/recipe-single';
 import Resources from './screens/resources';
 //import Search from './screens/search';
 import SignUp from './screens/sign-up';
+import Create from './screens/create';
 
 
 export default function Routes() {
@@ -17,6 +18,7 @@ export default function Routes() {
       <Route path="/login" exact component={Login} />
       <Route path="/sign-up" exact component={SignUp} />
       <Route path="/my-recipes" exact component={MyRecipes} />
+      <Route path="/create" exact component={Create} />
       {/*Might change this route*/}
       <Route path="/home/:name" component = {RecipeSingle} /> 
       <Route path="/resources" exact component={Resources} />
