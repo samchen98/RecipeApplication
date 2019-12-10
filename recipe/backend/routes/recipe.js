@@ -12,7 +12,8 @@ let Recipe = require('../models/recipe.model.js');
       time,
       servings,
       ingredients,
-      directions
+      directions,
+      image
     } = body;
         
     // Check to see that all required inputs are given
@@ -58,6 +59,13 @@ let Recipe = require('../models/recipe.model.js');
         message: 'Error: Your recipe must have directions.'
         });
     }
+
+    if (!image) {
+      return res.send({
+      success: false,
+      message: 'Error: Your recipe must have an image.'
+      });
+  }
   
     // Save the new recipe
     const aRecipe = new Recipe();
@@ -67,6 +75,7 @@ let Recipe = require('../models/recipe.model.js');
     aRecipe.servings = servings;
     aRecipe.ingredients = ingredients;
     aRecipe.directions = directions;
+    aRecipe.image = image;
       
     aRecipe.save((err, recipe) => {
       if (err) {

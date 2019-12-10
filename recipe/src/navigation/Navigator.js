@@ -15,9 +15,8 @@ export default class Navigator extends React.Component {
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/all-recipes">All Recipes</Nav.Link>
                     <Nav.Link href="/my-recipes">My Recipes</Nav.Link>
-                    <Nav.Link href="/recipe-single">Single</Nav.Link>
                     <Nav.Link href="/resources">Resources</Nav.Link>
-                    <Nav.Link href="/create">Add Your Own!</Nav.Link>
+                    <Nav.Link href="/create">Add Your Own!</Nav.Link>       
                 </Nav>
                 <Nav className = "navbar-right">
                     <Nav.Link href="/login">
