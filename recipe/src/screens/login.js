@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import "./login.css";
+import axios from 'axios';
+const config = require("../config")
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
@@ -11,28 +13,25 @@ export default function Login(props) {
   }
 
   function handleSubmit(event) {
+    event.preventDefault();
+    
     console.log(email)
     console.log(password)
     const newUser = {
       email: email,
       password: password
     };
-    // axios.post(config.serversite + '/users/auth', newUser)
-    // .then(res=> {if(res.data.success = true){
-    //   if(res.data.message.userType == "patient"){
-    //     this.storePatient(res.data.message)
-        
-    //   }
-    //   else if(res.data.message.userType == "physician"){
-    //     console.log(res)
-    //     this.storePhysician(res.data.message)
-     
-    //   }
-    // }
-    // else{
-    //   console.log("Email invalid")
-    // }
-    // });
+    axios.post(config.serversite + '/users/auth', newUser)
+    .then(res=> {
+      
+      if(res.data.success === true){
+        localStorage.setItem('loginemail', email);
+     console.log("email and password valid")
+    }
+    else{
+      console.log("Email invalid")
+    }
+    });
   }
 
   return (
