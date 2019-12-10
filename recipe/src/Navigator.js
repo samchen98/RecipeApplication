@@ -8,9 +8,10 @@ import { faCarrot } from '@fortawesome/free-solid-svg-icons'
 export default class Navigator extends React.Component {
     render() { 
         return (
+            
             // activeStyle = {{color: "#fdcb14"}} not working for Nav.Link
             <div>
-            <Navbar bg="light" variant="light" sticky="top">
+            <Navbar bg="light"  variant="light" sticky="top">
                 <Navbar.Brand href="/home" style = {{color: "#fd7e14"}}><FontAwesomeIcon icon={faCarrot}/> APP-NAME</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
