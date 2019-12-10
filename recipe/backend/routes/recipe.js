@@ -84,6 +84,20 @@ let Recipe = require('../models/recipe.model.js');
 
 });
 
-//
+// Retrieve all recipes
+router.route('/retrieveAll').get((req, res) => {  
+
+});
+
+// Retrieve by ID
+router.route('/byID').get((req, res) => {  
+
+});
+
+// Delete recipe
+router.route('/del').get((req, res) => {  
+
+});
+
 
 module.exports = router;
