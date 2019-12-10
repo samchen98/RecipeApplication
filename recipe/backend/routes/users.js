@@ -1,59 +1,151 @@
-import React, { useState } from "react";
-import { Button, FormGroup, FormControl } from "react-bootstrap";
-import "./login.css";
-import axios from 'axios';
-const config = require("../config")
+const router = require('express').Router();
+let User = require('../models/user.model.js');
 
-export default function SignUp(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+// router.route('/').get((req, res) => {
+//   User.find()
+//     .then(users => res.json(users))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
+router.route('/auth').post((req, res) => {
+  console.log("is this hit?");
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+  const { body } = req;
+  let {
+    fname,
+    lname,
+    email,
+    password,
+    userType
+  } = body;
+  
+  
+  if (!email) {
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    var cat = localStorage.getItem('loginemail');
-    console.log(cat)
+  email = email.toLowerCase();
+  email = email.trim();
 
-    console.log(email)
-    console.log(password)
-    const newUser = {
-      email: email,
-      password: password
-    };
-    axios.post(config.serversite + '/users/add', newUser)
-      .then(res => {
-        console.log(res.data)
+  // Steps:
+  // 1. Verify email doesn't exist
+  // 2. Save
+  User.find({
+    email: email
+  }, (err, users) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Server error'
+      });
+    } else if (users.length != 1) {
+      return res.send({
+        success: false,
+        message: 'Error'
+      });
+    }
+    const user = users[0];
+
+    if (!user.validPassword(password)) {
+      return res.send({
+        success: false,
+        message: 'Error: Invalidaaaaa'
+      });
+    }
+    else{
+      return res.send({
+        success: true,
+        message: 'Valid sign in',
         
       });
+    }
+    
+
+
+});
+});
+
+
+router.route('/add').post((req, res) => {
+  console.log("is this hit?");
+
+  const { body } = req;
+  let {
+    fname,
+    lname,
+    email,
+    password,
+    userType
+  } = body;
+  
+  console.log(email);
+  if (!email) {
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
   }
 
-  return (
-    <div className="Login">
-      <form onSubmit={handleSubmit}>
-        <FormGroup controlId="email" bsSize="large">
-          <div>Email</div>
-          <FormControl
-            autoFocus
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
-          <div>Password</div>
-          <FormControl
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-          />
-        </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
-          Login
-        </Button>
-      </form>
-    </div>
-  );
-}
+  email = email.toLowerCase();
+  email = email.trim();
+
+  // Steps:
+  // 1. Verify email doesn't exist
+  // 2. Save
+  User.find({
+    email: email
+  }, (err, previousUsers) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Server error'
+      });
+    } else if (previousUsers.length > 0) {
+      return res.send({
+        success: false,
+        message: 'Error: Account already exist.'
+      });
+    }
+
+    // Save the new user
+    const newUser = new User();
+    newUser.fname = fname;
+    newUser.lname = lname;
+    newUser.userType = userType;
+    newUser.email = email;
+    newUser.password = newUser.generateHash(password);
+    newUser.save((err, user) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: 'Error: Server error'
+        });
+      }
+      return res.send({
+        success: true,
+        message: 'Signed up'
+      });
+    });
+  });
+
+
+});
+
+
+
+
+module.exports = router;

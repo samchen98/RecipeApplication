@@ -2,6 +2,23 @@ const router = require('express').Router();
 let Recipe = require('../models/recipe.model.js');
 
 // Insert new recipe
+
+router.route('/getrecipe').post((req, res) => {
+  const { body } = req;
+  let {
+    ingredients,
+  } = body;
+ console.log(ingredients)
+  Recipe.find({
+    ingredients: { $all: ingredients }
+  }, (err, questions) => {
+   
+    return res.send({
+        message: questions
+      });
+});
+});
+
   router.route('/create').post((req, res) => {  
     // User input
     const { body } = req;
@@ -105,7 +122,18 @@ router.route('/byID').get((req, res) => {
 
 // Delete recipe
 router.route('/del').get((req, res) => {  
-
+  await Recipe.findOneAndDelete({_id: req.params.id}, (err, recipe) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Recipe not deleted.'
+      });
+    }
+    return res.send({
+      success: true,
+      message: 'Recipe deleted!'
+    });
+  })
 });
 
 

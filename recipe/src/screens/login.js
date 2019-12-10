@@ -11,28 +11,49 @@ export default function Login(props) {
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
+  function testfunction() {
+   const newUser = {
+    ingredients: ["carrots","broc"]
+    };
+    axios.post(config.serversite + '/recipe/getrecipe', newUser)
+    .then(res=> {
+      console.log(res.data)
+    });
+
+    // console.log("this is hit")
+    // const ing = {
+    //   ingredients: "carrots"
+    // };
+    // axios.post(config.serversite + '/rec/getrecipe', ing)
+    // .then(res=> {
+      
+    //   console.log(res.data)
+    // });
+
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
     
-    console.log(email)
-    console.log(password)
-    const newUser = {
-      email: email,
-      password: password
-    };
-    axios.post(config.serversite + '/users/auth', newUser)
-    .then(res=> {
+    // console.log(email)
+    // console.log(password)
+    // console.log("hello")
+    // const newUser = {
+    //   email: email,
+    //   password: password
+    // };
+    // axios.post(config.serversite + '/users/auth', newUser)
+    // .then(res=> {
       
-      if(res.data.success === true){
-        localStorage.setItem('loginemail', email);
-     console.log("email and password valid")
-    }
-    else{
-      console.log("Email invalid")
-    }
-    });
-  }
+    //   if(res.data.success === true){
+    //     localStorage.setItem('loginemail', email);
+    //  console.log("email and password valid")
+    // }
+    // else{
+    //   console.log("Email invalid")
+    // }
+    // });
+   }
 
   return (
     <div className="Login">
@@ -57,6 +78,8 @@ export default function Login(props) {
         <Button block bsSize="large" disabled={!validateForm()} type="submit">
           Login
         </Button>
+        <button onClick={testfunction}>Test</button>
+        
       </form>
     </div>
   );
