@@ -15,6 +15,7 @@ export default class Navigator extends React.Component {
                 <Navbar.Brand href="/home" style = {{color: "#fd7e14"}}><FontAwesomeIcon icon={faCarrot}/> APP-NAME</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
+                    <Nav.Link href="/all-recipes">All Recipes</Nav.Link>
                     <Nav.Link href="/my-recipes">My Recipes</Nav.Link>
                     <Nav.Link href="/resources">Resources</Nav.Link>
                     <Nav.Link href="/create">Add Your Own!</Nav.Link>

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from './screens/home';
 import Login from './screens/login';
 import MyRecipes from './screens/my-recipes';
+import AllRecipes from './screens/all-recipes';
 import RecipeSingle from './screens/recipe-single';
 import Resources from './screens/resources';
 import Search from './screens/search';
@@ -18,6 +19,7 @@ export default function Routes() {
       <Route path="/login" exact component={Login} />
       <Route path="/sign-up" exact component={SignUp} />
       <Route path="/my-recipes" exact component={MyRecipes} />
+      <Route path="/all-recipes" exact component={AllRecipes} />
       <Route path="/create" exact component={Create} />
       {/*Might change this route*/}
       <Route path="/home/:name" component = {RecipeSingle} /> 
