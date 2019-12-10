@@ -22,7 +22,7 @@ export default function Routes() {
       <Route path="/all-recipes" exact component={AllRecipes} />
       <Route path="/create" exact component={Create} />
       {/*Might change this route*/}
-      <Route path="/home/:id" component = {RecipeSingle} /> 
+      <Route path="/all-recipes/:id" component = {RecipeSingle} /> 
       <Route path="/resources" exact component={Resources} />
       <Route path="/search" exact component={Search} />
     </Switch>
