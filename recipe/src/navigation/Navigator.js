@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import Routes from "./Routes";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCarrot } from '@fortawesome/free-solid-svg-icons'
@@ -8,8 +8,6 @@ import { faCarrot } from '@fortawesome/free-solid-svg-icons'
 export default class Navigator extends React.Component {
     render() { 
         return (
-            
-            // activeStyle = {{color: "#fdcb14"}} not working for Nav.Link
             <div>
             <Navbar bg="light"  variant="light" sticky="top">
                 <Navbar.Brand href="/home" style = {{color: "#fd7e14"}}><FontAwesomeIcon icon={faCarrot}/> APP-NAME</Navbar.Brand>
