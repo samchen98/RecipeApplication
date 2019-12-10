@@ -2,6 +2,89 @@
   text-align: center;
 }
 
+.Fav-Btn {
+  background-color: lightgray !important;
+  float: center;
+  text-align: center;
+  right: 70px;
+  bottom: 400;
+  padding: 10px 48px;
+  border: 2px solid white !important;
+  border-radius: 50% !important;
+}
+.Fav-Btn.active {
+  background-color: gold !important;
+  border: 1px solid whitesmoke !important; 
+}
+
+.circular--portrait {
+  position: relative;
+  bottom: 0;
+  right: -180px;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid #fff;
+}
+.recipebox{
+  border: 10px solid "#fd7e14";
+  width: 700px;
+  padding: 10px 48px;
+  background-color: whitesmoke !important;
+  border-radius: 10% !important;
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
+.sm-Fav-Btn {
+  background-color: lightgray !important;
+  float: center;
+  text-align: center;
+  right: 70px;
+  bottom: 20px !important;
+  padding: 10px 48px;
+  border: 2px solid white !important;
+  border-radius: 50% !important;
+}
+.sm-Fav-Btn.active {
+  background-color: gold !important;
+  border: 1px solid whitesmoke !important; 
+}
+
+.sm-circular--portrait {
+  position: relative;
+  bottom: 0;
+  right: 0px !important ;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid #fff;
+}
+.sm-recipebox{
+  border: 10px solid "#fd7e14";
+  width: 350px;
+  padding: 10px 48px;
+  background-color: whitesmoke !important;
+  border-radius: 20% !important;
+}
+
+.sm-circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
+/* .Fav-Star {
+  float: center;
+  color: gold;
+  text-align: center;
+  padding: 5px 6px;
+} */
+
 /* Navigator {
   display: flex;
   

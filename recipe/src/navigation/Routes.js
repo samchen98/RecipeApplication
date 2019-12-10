@@ -19,6 +19,7 @@ export default function Routes() {
       <Route path="/login" exact component={Login} />
       <Route path="/sign-up" exact component={SignUp} />
       <Route path="/my-recipes" exact component={MyRecipes} />
+      <Route path="/recipe-single" exact component={RecipeSingle} />
       <Route path="/all-recipes" exact component={AllRecipes} />
       <Route path="/create" exact component={Create} />
       {/*Might change this route*/}
