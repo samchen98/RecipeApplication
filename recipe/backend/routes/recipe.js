@@ -2,6 +2,23 @@ const router = require('express').Router();
 let Recipe = require('../models/recipe.model.js');
 
 // Insert new recipe
+
+router.route('/getrecipe').post((req, res) => {
+  const { body } = req;
+  let {
+    ingredients,
+  } = body;
+ console.log(ingredients)
+  Recipe.find({
+    ingredients: { $all: ingredients }
+  }, (err, questions) => {
+   
+    return res.send({
+        message: questions
+      });
+});
+});
+
   router.route('/create').post((req, res) => {  
     // User input
     const { body } = req;
