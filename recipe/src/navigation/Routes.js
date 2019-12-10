@@ -19,14 +19,11 @@ export default function Routes() {
       <Route path="/login" exact component={Login} />
       <Route path="/sign-up" exact component={SignUp} />
       <Route path="/my-recipes" exact component={MyRecipes} />
-<<<<<<< HEAD:recipe/src/Routes.js
       <Route path="/recipe-single" exact component={RecipeSingle} />
-=======
       <Route path="/all-recipes" exact component={AllRecipes} />
->>>>>>> 91a2c17b1a955b90dfa12d44a55def0b7e8c5940:recipe/src/navigation/Routes.js
       <Route path="/create" exact component={Create} />
       {/*Might change this route*/}
-      <Route path="/home/:id" component = {RecipeSingle} /> 
+      <Route path="/all-recipes/:id" component = {RecipeSingle} /> 
       <Route path="/resources" exact component={Resources} />
       <Route path="/search" exact component={Search} />
     </Switch>
