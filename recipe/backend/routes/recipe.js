@@ -1,11 +1,8 @@
 const router = require('express').Router();
 let Recipe = require('../models/recipe.model.js');
 
-<<<<<<< HEAD
-=======
-//Get recipe by Ingredient????
 
->>>>>>> 22cbfa80265593add84c8fbb7926ac1384002f02
+//Get recipe by Ingredient????
 router.route('/getrecipe').post((req, res) => {
   const { body } = req;
   let {
