@@ -16,7 +16,8 @@ export default class Create extends React.Component {
             time: '',
             servings: '',
             ingredients: '',
-            directions: ''
+            directions: '',
+            image: ''
         }
     }
 
@@ -51,9 +52,14 @@ export default class Create extends React.Component {
         this.setState({ directions })
     }
 
+    handleChangeInputImage = async event => {
+        const image = event.target.value
+        this.setState({ image })
+    }
+
     handleIncludeRecipe = async () => {
-        const { name, author, time, servings, ingredients, directions } = this.state;
-        const userInput = { name, author, time, servings, ingredients, directions };
+        const { name, author, time, servings, ingredients, directions, image } = this.state;
+        const userInput = { name, author, time, servings, ingredients, directions, image };
 
         await apis.insertRecipe(userInput).then(res => {
             //alert(`Recipe inserted successfully`)
@@ -63,7 +69,8 @@ export default class Create extends React.Component {
                 time: '',
                 servings: '',
                 ingredients: '',
-                directions: ''
+                directions: '',
+                image: ''
             })
         })
 
@@ -71,7 +78,7 @@ export default class Create extends React.Component {
     }
     // TO-DO: Make placeholders more specific
     render () {
-        const { name, author, time, servings, ingredients, directions } = this.state;
+        const { name, author, time, servings, ingredients, directions, image } = this.state;
         return (
             <Container>
             <br></br>
@@ -105,8 +112,14 @@ export default class Create extends React.Component {
                     <Form.Label column={2}>Servings</Form.Label>
                     <Col sm={8}><Form.Control type="text" placeholder="Enter expected servings" value = {servings} onChange={this.handleChangeInputServings}/></Col>
                     </Form.Group>
+                    </Col><Col xs={6}>
+                    <Form.Group as={Row} controlId="formGridImage">
+                    <Form.Label column={2}>Servings</Form.Label>
+                    <Col sm={8}><Form.Control type="text" placeholder="Enter image" value = {servings} onChange={this.handleChangeInputImage}/></Col>
+                    </Form.Group>
                     </Col>
                     </Row>
+                    
                     
 
                 <Form.Group as={Row} controlId="formGridDirections">

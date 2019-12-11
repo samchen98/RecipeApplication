@@ -1,7 +1,26 @@
+CSS
+
 .App {
   text-align: center;
 }
+a:link {
+  color: black !important;
+}
 
+/* visited link */
+a:visited {
+  color: gray;
+}
+
+/* mouse over link */
+a:hover {
+  color: #fd7e14 !important;
+}
+
+/* selected link */
+a:active {
+  color: #fd7e14;
+}
 .Fav-Btn {
   background-color: lightgray !important;
   float: center;
@@ -14,9 +33,12 @@
 }
 .Fav-Btn.active {
   background-color: gold !important;
-  border: 1px solid whitesmoke !important; 
+  border: 2px solid whitesmoke !important; 
 }
-
+.column {
+  float: left;
+  width: 50%;
+}
 .circular--portrait {
   position: relative;
   bottom: 0;
@@ -52,7 +74,7 @@
 }
 .sm-Fav-Btn.active {
   background-color: gold !important;
-  border: 1px solid whitesmoke !important; 
+  border: 2px solid whitesmoke !important; 
 }
 
 .sm-circular--portrait {

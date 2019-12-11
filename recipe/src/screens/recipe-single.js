@@ -83,6 +83,10 @@ export default class RecipeSingle extends React.Component {
                             <Button variant="dark" onClick={this.setRedirect}>Delete</Button>
                         </ButtonToolbar></h1>
                         <p> 
+                        <h5>Author :<i> author</i></h5>
+                        <h5>Time :<i> time</i></h5>
+                        <h5>Servings :<i> servings</i></h5>
+                        <br></br>
                         <h3>Ingredients :</h3>
 
                         <li>1/2 pound elbow pasta</li>
@@ -110,22 +114,6 @@ export default class RecipeSingle extends React.Component {
                     
                     </Col>
                     <Col xs={12} md={4}><div class="circular--portrait"><Image src= {macncheese} style={style1}/></div></Col>
-                </Row></div>
-                <br></br>
-                <div class = "sm-recipebox">
-                    <Row className="align-items-center" >
-                    <Col xs={4} md={8} style={style2}>
-                        
-                        <h3>Baked Mac n' Cheese
-                        <ButtonToolbar>
-                            <ToggleButtonGroup type="checkbox" >
-                            <ToggleButton  className="sm-Fav-Btn" value={1}>
-                            <FontAwesomeIcon className = "sm-Fav-Star" icon={faStar}/></ToggleButton>
-                            </ToggleButtonGroup>
-                        </ButtonToolbar></h3>
-                        
-                    </Col>
-                    <Col xs={12} md={4}><div class="sm-circular--portrait"><Image src= {macncheese} style={style3}/></div></Col>
                 </Row></div>
             </Container>
             );

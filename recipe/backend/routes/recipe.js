@@ -29,7 +29,8 @@ router.route('/getrecipe').post((req, res) => {
       time,
       servings,
       ingredients,
-      directions
+      directions,
+      image
     } = body;
         
     // Check to see that all required inputs are given
@@ -75,6 +76,13 @@ router.route('/getrecipe').post((req, res) => {
         message: 'Error: Your recipe must have directions.'
         });
     }
+
+    if (!image) {
+      return res.send({
+      success: false,
+      message: 'Error: Your recipe must have an image.'
+      });
+  }
   
     // Save the new recipe
     const aRecipe = new Recipe();
@@ -84,6 +92,7 @@ router.route('/getrecipe').post((req, res) => {
     aRecipe.servings = servings;
     aRecipe.ingredients = ingredients;
     aRecipe.directions = directions;
+    aRecipe.image = image;
       
     aRecipe.save((err, recipe) => {
       if (err) {
@@ -108,6 +117,19 @@ router.route('/retrieveAll').get((req, res) => {
 
 // Retrieve by ID
 router.route('/byID').get((req, res) => {  
+
+  await Movie.findOne({ _id: req.params.id }, (err, movie) => {
+    if (err) {
+        return res.status(400).json({ success: false, error: err })
+    }
+
+    if (!movie) {
+        return res
+            .status(404)
+            .json({ success: false, error: `Movie not found` })
+    }
+    return res.status(200).json({ success: true, data: movie })
+}).catch(err => console.log(err))
 
 });
 
