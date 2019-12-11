@@ -18,7 +18,7 @@ export default function Login(props) {
     };
     axios.post(config.serversite + '/recipe/getrecipe', newUser)
     .then(res=> {
-      console.log(res.data.message[0].directions)
+      console.log(res.data)
     });
 
     // console.log("this is hit")
