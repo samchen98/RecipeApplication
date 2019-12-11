@@ -122,25 +122,30 @@ router.route('/getrecipe').post((req, res) => {
 
 // Retrieve all recipes
 router.route('/retrieveAll').get((req, res) => {  
-const { body } = req;
-  let {
-    name,
-      author,
-      time,
-      servings,
-      ingredients,
-      directions,
-      image
-  } = body;
- console.log(ingredients)
-  Recipe.find({}, (err, questions) => {
-    if(!recipe.length){
-    return res.send({
-        message: questions
-      });
-    }
-});
-
+// const { body } = req;
+//   let {
+//     name,
+//       author,
+//       time,
+//       servings,
+//       ingredients,
+//       directions,
+//       image
+//   } = body;
+//  console.log(ingredients)
+//   Recipe.find({}, (err, questions) => {
+//     if(!recipe.length){
+//     return res.send({
+//         message: questions
+//       });
+//     }
+// });
+  Recipe.find( (err, data) => {
+    if (err) return res.json({success:false, error: err});
+    return res.json({success:true, data: data});
+  }
+  
+)
 });
 
 

@@ -42,7 +42,8 @@ export default class RecipeTile extends React.Component {
                 <br></br>
                     <Row className="align-items-center" >
                         <br></br>
-                        <h3><center><a href="recipe-single">Baked Mac n' Cheese</a></center></h3>
+                        {/* <h3><center><a href="recipe-single">Baked Mac n' Cheese</a></center></h3> */}
+                        <h3><center><a href="recipe-single">{this.props.name}</a></center></h3>
                     <Col xs={4} md={8} style={style2}>
                         
                         
@@ -54,10 +55,14 @@ export default class RecipeTile extends React.Component {
                         </ButtonToolbar>
                         
                         <p> 
-                        <h6>Author :<i> author</i></h6>
+                        {/* <h6>Author :<i> author</i></h6>
                         <h6>Time :<i> time</i></h6>
                         <h6>Servings :<i> servings</i></h6>
-                        <h6>Ingredients :<i> #</i></h6>
+                        <h6>Ingredients :<i> #</i></h6> */}
+                        <h6>Author :<i> {this.props.author}</i></h6>
+                        <h6>Time :<i> {this.props.time}</i></h6>
+                        <h6>Servings :<i> {this.props.servings}</i></h6>
+                        <h6>Ingredients :<i> {this.props.ingredients}</i></h6>
                         
                         
                         </p>
