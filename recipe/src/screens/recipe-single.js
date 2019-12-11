@@ -42,6 +42,14 @@ export default class RecipeSingle extends React.Component {
 
 
     render () {
+        const style1 = {
+            width: '350px',
+            height: '350px',
+        }
+
+        const style2 = {
+            'text-align': "left",
+        }
         return (
             // <div>
             //     <h1>Singular recipe page</h1>
