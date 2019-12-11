@@ -12,12 +12,13 @@ export default function Login(props) {
     return email.length > 0 && password.length > 0;
   }
   function testfunction() {
+    
    const newUser = {
     ingredients: ["carrots","broc"]
     };
     axios.post(config.serversite + '/recipe/getrecipe', newUser)
     .then(res=> {
-      console.log(res.data)
+      console.log(res.data.message[0].directions)
     });
 
     // console.log("this is hit")
