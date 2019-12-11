@@ -14,45 +14,110 @@ import RecipeSingle from '../screens/recipe-single'
 import RecipeTile from '../screens/recipe-tile'
 
 
+import { Button, FormGroup, FormControl, TextInput } from "react-bootstrap";
+import TagsInput from 'react-tagsinput'
+ 
+import 'react-tagsinput/react-tagsinput.css'
+
+import axios from 'axios';
+const config = require("../config")
 export default class AllRecipes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {tags: [],
+            recipes:[]
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.testfunction = this.testfunction.bind(this);
+       
+      }
+      handleChange(tags) {
+        this.setState({tags});
+      }
     
-    render () {
-            const style1 = {
-                width: '350px',
-                height: '350px',
-            }
     
-            const style2 = {
-                'text-align': "left",
-                width: '750px',
-            }
+      testfunction() {
+        console.log(this.state.tags);
     
-            const style3 = {
-                width: '150px',
-                height: '150px',
-            }
+        const newUser = {
+            ingredients: this.state.tags
+            };
+            axios.post(config.serversite + '/recipe/getall', newUser)
+            .then(res=> {
+                console.log(res.data.message)
+                this.setState({ recipes: res.data.message});
+            });
+    
+        
+      }
+      componentDidMount() {
+        this.testfunction();
+      }
+    
+      render() {
+        const recipes = this.state.recipes.map(recipe => (
+            <div style={{ border: "1px solid black"}} key={recipe.name}>
+              <h3>Name: {recipe.author}</h3>
+              <p>Contact: {recipe.name}</p>
             
-
+            </div>
+          ));
         return (
+          <div>
+            <h1>All</h1>
+    
             
-            <Container>
-                <br></br>
-                <br></br>
+{/*     
+            <TagsInput value={this.state.tags} onChange={this.handleChange} />
+            <button onClick={this.testfunction}>
+                hello
+            </button>
+     */}
+            {/* <p>Data will be fetched after the button click.</p>
+          <button onClick={this.getEmployees} >Get Employees</button> */}
+          {recipes}
+     
+          </div>
+        );
+      }
+    
+//     render () {
+//             const style1 = {
+//                 width: '350px',
+//                 height: '350px',
+//             }
+    
+//             const style2 = {
+//                 'text-align': "left",
+//                 width: '750px',
+//             }
+    
+//             const style3 = {
+//                 width: '150px',
+//                 height: '150px',
+//             }
+            
+
+//         return (
+            
+//             <Container>
+//                 <br></br>
+//                 <br></br>
                 
-                <h1>All Recipes</h1>
-                <br></br>
-                <br></br>
-                <br></br>
-                getAllRecipes
-                <RecipeTile/>
-                <RecipeTile/>
-                <RecipeTile/>
-                <RecipeTile/>
-                <RecipeTile/>
-                <RecipeTile/>
-            </Container>
+//                 <h1>All Recipes</h1>
+//                 <br></br>
+//                 <br></br>
+//                 <br></br>
+//                 getAllRecipes
+//                 <RecipeTile/>
+//                 <RecipeTile/>
+//                 <RecipeTile/>
+//                 <RecipeTile/>
+//                 <RecipeTile/>
+//                 <RecipeTile/>
+//             </Container>
 
             
-);
-    }    
+// );
+//     }    
 }

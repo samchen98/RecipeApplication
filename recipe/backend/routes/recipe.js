@@ -19,6 +19,18 @@ router.route('/getrecipe').post((req, res) => {
 });
 });
 
+//get all 
+router.route('/getall').post((req, res) => {
+
+  Recipe.find({
+  }, (err, questions) => {
+   
+    return res.send({
+        message: questions
+      });
+});
+});
+
 // Insert new recipe
   router.route('/create').post((req, res) => {  
     const { body } = req
