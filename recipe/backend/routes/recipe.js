@@ -1,8 +1,6 @@
 const router = require('express').Router();
 let Recipe = require('../models/recipe.model.js');
 
-// Insert new recipe
-
 router.route('/getrecipe').post((req, res) => {
   const { body } = req;
   let {
@@ -20,8 +18,7 @@ router.route('/getrecipe').post((req, res) => {
 });
 
   router.route('/create').post((req, res) => {  
-    // User input
-    const { body } = req;
+    const { body } = req
 
     let {
       name,
@@ -30,8 +27,10 @@ router.route('/getrecipe').post((req, res) => {
       servings,
       ingredients,
       directions,
-      image
+      type
+      // image
     } = body;
+
         
     // Check to see that all required inputs are given
     if (!name) {
@@ -77,12 +76,19 @@ router.route('/getrecipe').post((req, res) => {
         });
     }
 
-    if (!image) {
+    if (!type) {
       return res.send({
       success: false,
-      message: 'Error: Your recipe must have an image.'
+      message: 'Error: Your recipe must have a meal type.'
       });
   }
+
+  //   if (!image) {
+  //     return res.send({
+  //     success: false,
+  //     message: 'Error: Your recipe must have an image.'
+  //     });
+  // }
   
     // Save the new recipe
     const aRecipe = new Recipe();
@@ -92,7 +98,8 @@ router.route('/getrecipe').post((req, res) => {
     aRecipe.servings = servings;
     aRecipe.ingredients = ingredients;
     aRecipe.directions = directions;
-    aRecipe.image = image;
+    aRecipe.type = type;
+    // aRecipe.image = image;
       
     aRecipe.save((err, recipe) => {
       if (err) {

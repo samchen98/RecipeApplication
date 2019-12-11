@@ -17,7 +17,8 @@ export default class Create extends React.Component {
             servings: '',
             ingredients: '',
             directions: '',
-            image: ''
+            type: '',
+            //image: ''
         }
     }
 
@@ -52,14 +53,19 @@ export default class Create extends React.Component {
         this.setState({ directions })
     }
 
-    handleChangeInputImage = async event => {
-        const image = event.target.value
-        this.setState({ image })
+    handleChangeInputType = async event => {
+        const type = event.target.value
+        this.setState({ type })
     }
 
+    // handleChangeInputImage = async event => {
+    //     const image = event.target.value
+    //     this.setState({ image })
+    // }
+
     handleIncludeRecipe = async () => {
-        const { name, author, time, servings, ingredients, directions, image } = this.state;
-        const userInput = { name, author, time, servings, ingredients, directions, image };
+        const { name, author, time, servings, ingredients, directions, type} = this.state;
+        const userInput = { name, author, time, servings, ingredients, directions, type};
 
         await apis.insertRecipe(userInput).then(res => {
             //alert(`Recipe inserted successfully`)
@@ -70,7 +76,8 @@ export default class Create extends React.Component {
                 servings: '',
                 ingredients: '',
                 directions: '',
-                image: ''
+                type: ''
+                //image: ''
             })
         })
 
@@ -80,7 +87,7 @@ export default class Create extends React.Component {
     }
     // TO-DO: Make placeholders more specific
     render () {
-        const { name, author, time, servings, ingredients, directions, image } = this.state;
+        const { name, author, time, servings, ingredients, directions, type} = this.state;
         return (
             <Container>
             <br></br>
@@ -118,10 +125,21 @@ export default class Create extends React.Component {
                     </Col>
                     </Row>
 
-                    <Form.Group as={Row} controlId="formGridRecipeImage">
+                    {/* <Form.Group as={Row} controlId="formGridRecipeImage">
                     <Form.Label column={2}>Recipe photo</Form.Label>
-                    <Col sm={10}><Form.Control type="file" value = {image} onChange={this.handleChangeInputImage}/></Col>
-                    </Form.Group>
+                    <Col sm={10}><Form.Control type="file" name="image" value = {image} onChange={this.handleChangeInputImage}/></Col>
+                    </Form.Group> */}
+
+                <Form.Group as={Row} controlId="formMealType">
+                    <Form.Label column={2}>Type of meal</Form.Label>
+                    <Col sm={10}><Form.Control as="select" onChange={this.handleChangeInputType}>
+                    <option>Choose...</option>
+                    <option>Breakfast</option>
+                    <option>Lunch</option>
+                    <option>Dinner</option>
+                    <option>Snack</option>
+                    </Form.Control></Col>
+                </Form.Group>
                     
                 <Form.Group as={Row} controlId="formGridDirections">
                     <Form.Label column={2}>Directions</Form.Label>

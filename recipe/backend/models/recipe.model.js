@@ -8,7 +8,9 @@ const recipeSchema = new Schema({
     time:{type:Number},
     servings:{type:Number},
     ingredients:{type:[String]},
-    directions:{type:[String]}
+    directions:{type:[String]},
+    type:{type:String},
+    //image:{ data: Buffer, contentType: String}
 }, {
   timestamps: true,
 });
