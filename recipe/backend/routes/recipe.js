@@ -96,7 +96,7 @@ router.route('/byID').get((req, res) => {
 
 // Delete recipe
 router.route('/del').get((req, res) => {  
-  await Recipe.findOneAndDelete({_id: req.params.id}, (err, recipe) => {
+  Recipe.findOneAndDelete({_id: req.params.id}, (err, recipe) => {
     if (err) {
       return res.send({
         success: false,
