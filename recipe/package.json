@@ -15,10 +15,12 @@
     "mongoose": "^5.8.0",
     "nodemon": "^2.0.1",
     "react": "^16.11.0",
+    "react-autosuggest": "^9.4.3",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-tagsinput": "^3.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
