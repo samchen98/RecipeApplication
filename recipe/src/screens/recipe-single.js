@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import Button from 'react-bootstrap/Button'
+import { Redirect } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
@@ -14,6 +16,31 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 // This component might be unnecessary 
 export default class RecipeSingle extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirect: false,
+        }
+    }
+
+    setRedirect = async () => {
+        alert("in setRedirect")
+        this.setState({redirect: true})
+        console.log("test" + this.state.redirect)
+        this.renderRedirect()
+    }
+
+    renderRedirect = () => {
+        alert("entering renderRedirect")
+        alert(this.state.redirect)
+        if (this.state.redirect) {
+            return <Redirect to="/all-recipes" />
+        }
+    }
+    
+    // handler for favoriting?
+
+
     render () {
         const style1 = {
             width: '350px',
@@ -29,7 +56,7 @@ export default class RecipeSingle extends React.Component {
             width: '150px',
             height: '150px',
         }
-
+ 
         
         return (
             // <div>
@@ -53,6 +80,7 @@ export default class RecipeSingle extends React.Component {
                             <ToggleButton  className="Fav-Btn" value={1}>
                             <FontAwesomeIcon className = "Fav-Star" icon={faStar}/></ToggleButton>
                             </ToggleButtonGroup>
+                            <Button variant="dark" onClick={this.setRedirect}>Delete</Button>
                         </ButtonToolbar></h1>
                         <p> 
                         <h3>Ingredients :</h3>
