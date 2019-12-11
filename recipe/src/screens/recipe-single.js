@@ -49,6 +49,7 @@ export default class RecipeSingle extends React.Component {
 
         const style2 = {
             'text-align': "left",
+
             width: '750px',
         }
 
@@ -56,7 +57,7 @@ export default class RecipeSingle extends React.Component {
             width: '150px',
             height: '150px',
         }
-
+        
         return (
             // <div>
             //     <h1>Singular recipe page</h1>

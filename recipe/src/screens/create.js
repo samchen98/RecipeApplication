@@ -74,6 +74,8 @@ export default class Create extends React.Component {
             })
         })
 
+        
+
         // TO-DO: Make success modal
     }
     // TO-DO: Make placeholders more specific
@@ -107,21 +109,20 @@ export default class Create extends React.Component {
                     <Col sm={8}><Form.Control type="text" placeholder="Enter recipe preparation time" value = {time} onChange={this.handleChangeInputTime}/></Col>
                     </Form.Group>
                     </Col>
+
                     <Col xs={6}>
                     <Form.Group as={Row} controlId="formGridServings">
                     <Form.Label column={2}>Servings</Form.Label>
                     <Col sm={8}><Form.Control type="text" placeholder="Enter expected servings" value = {servings} onChange={this.handleChangeInputServings}/></Col>
                     </Form.Group>
-                    </Col><Col xs={6}>
-                    <Form.Group as={Row} controlId="formGridImage">
-                    <Form.Label column={2}>Servings</Form.Label>
-                    <Col sm={8}><Form.Control type="text" placeholder="Enter image" value = {servings} onChange={this.handleChangeInputImage}/></Col>
-                    </Form.Group>
                     </Col>
                     </Row>
-                    
-                    
 
+                    <Form.Group as={Row} controlId="formGridRecipeImage">
+                    <Form.Label column={2}>Recipe photo</Form.Label>
+                    <Col sm={10}><Form.Control type="file" value = {image} onChange={this.handleChangeInputImage}/></Col>
+                    </Form.Group>
+                    
                 <Form.Group as={Row} controlId="formGridDirections">
                     <Form.Label column={2}>Directions</Form.Label>
                     <Col sm={10}><Form.Control as="textarea" style={{height: '200px'}} placeholder="1. Directions here...&#10;2. Directions here...&#10;3. Directions here..." value = {directions} onChange={this.handleChangeInputDirect}/></Col>
