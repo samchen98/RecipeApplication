@@ -31,6 +31,8 @@ export default class AllRecipes extends React.Component {
                 width: '150px',
                 height: '150px',
             }
+            
+
         return (
             
             <Container>
@@ -41,6 +43,7 @@ export default class AllRecipes extends React.Component {
                 <br></br>
                 <br></br>
                 <br></br>
+                getAllRecipes
                 <RecipeTile/>
                 <RecipeTile/>
                 <RecipeTile/>
