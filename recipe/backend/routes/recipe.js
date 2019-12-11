@@ -112,6 +112,19 @@ router.route('/getrecipe').post((req, res) => {
 
 // Retrieve all recipes
 router.route('/retrieveAll').get((req, res) => {  
+  Recipe.find({}, (err, recipe) => {
+    if (err) {
+      return res.send({
+        success: false, 
+        error: err })
+    }
+    if (!recipe.length) {
+        return res
+            .status(404)
+            .json({ success: false, error: `Recipe not found` })
+    }
+    return res.status(200).json({ success: true, data: recipe })
+}).catch(err => console.log(err))
 
 });
 
