@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
+
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import carrot from "./photos/carroticon.png"
 
@@ -18,6 +20,8 @@ export  class Resources extends React.Component {
     movefunction(){
 
       localStorage.setItem('ingredients', this.state.ingredients);
+      let path = "./search";
+      this.props.history.push(path);
 
       console.log("asdfasf")
     }
@@ -43,17 +47,17 @@ export  class Resources extends React.Component {
 
     render() {
         return (
-          <div>
+          <div style={{background: '#f8f9fa'}}>
             <div>
              
               {this.state.ingredients}
             </div>
             <div>
-               <button onClick={
+               <Button variant="outline-danger" style={{"margin-left": "35%"}} onClick={
               this.movefunction
                   }>
-                Find Recipes! 
-            </button>
+                Click on a marker and find recipes with those ingredients! 
+            </Button>
             </div>
             <Map
               google={this.props.google}

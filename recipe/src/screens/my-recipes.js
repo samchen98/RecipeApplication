@@ -79,7 +79,7 @@ export default class MyRecipes extends React.Component {
                     height={70}
       />
             <Card.Text>
-              Preparation time: {recipe.time}<br></br>
+              Preparation time: {recipe.time} minutes<br></br>
               Servings: {recipe.servings}<br></br>
               Type: {recipe.type}<br></br>
               Ingredients: {recipe.ingredients}<br></br>

@@ -137,7 +137,6 @@ export default class Create extends React.Component {
                     <option>Breakfast</option>
                     <option>Lunch</option>
                     <option>Dinner</option>
-                    <option>Snack</option>
                     </Form.Control></Col>
                 </Form.Group>
                     

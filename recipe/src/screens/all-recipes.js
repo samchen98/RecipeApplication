@@ -104,7 +104,7 @@ export default class AllRecipes extends React.Component {
                     height={70}
       />
                 <Card.Text>
-                  Preparation time: {recipe.time}<br></br>
+                  Preparation time: {recipe.time} minutes<br></br>
                   Servings: {recipe.servings}<br></br>
                   Type: {recipe.type}<br></br>
                   Ingredients:  <br></br>
@@ -129,9 +129,6 @@ export default class AllRecipes extends React.Component {
         return (
 
             <div>
-                
-
-            <h1>All</h1>
    
           {recipes}
      

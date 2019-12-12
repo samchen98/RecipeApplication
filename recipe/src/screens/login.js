@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import "./login.css";
+import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 const config = require("../config")
 
@@ -28,10 +29,13 @@ export default function Login(props) {
       
       if(res.data.success === true){
         localStorage.setItem('loginemail', email);
+        alert("Login success!")
      console.log("email and password valid")
     }
     else{
       console.log("Email invalid")
+      alert("Login failed!")
+
     }
     });
    }
