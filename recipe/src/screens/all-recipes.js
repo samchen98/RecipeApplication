@@ -102,8 +102,10 @@ export default class AllRecipes extends React.Component {
                   Preparation time: {recipe.time}<br></br>
                   Servings: {recipe.servings}<br></br>
                   Type: {recipe.type}<br></br>
-                  Ingredients: {recipe.ingredients}<br></br>
-                  Instructions: {recipe.directions}<br></br>
+                  Ingredients:  <br></br>
+                  {recipe.ingredients}<br></br>
+                  Instructions: <br></br>
+                  {recipe.directions}<br></br>
                 </Card.Text>
               <Button variant="outline-warning" onClick={this.newfunction.bind(this,recipe)}>Add to favorites</Button>
               </Card.Body>

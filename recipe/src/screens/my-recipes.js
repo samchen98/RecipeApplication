@@ -68,7 +68,7 @@ export default class MyRecipes extends React.Component {
         }
 
         const recipes = this.state.recipelist.map(recipe => (
-          <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block"}}>
+          <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block", 'width': "33%"}}>
           {/* <Card.Img variant="top" src={macncheese} style={{'max-width': "80%", height: "auto"}}/> */}
           <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
           <Card.Body>
@@ -90,7 +90,7 @@ export default class MyRecipes extends React.Component {
             // </div>
           ));
         return (
-          <div>
+          <div style={{"text-align": "center"}}>
             {/* {<h1>My Recipes</h1>} */}
             {message()}
             
