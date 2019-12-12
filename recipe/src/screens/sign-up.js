@@ -14,8 +14,7 @@ export default function SignUp(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    var cat = localStorage.getItem('loginemail');
-    console.log(cat)
+    
 
     console.log(email)
     console.log(password)

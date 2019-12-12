@@ -6,6 +6,35 @@ let User = require('../models/user.model.js');
 //     .then(users => res.json(users))
 //     .catch(err => res.status(400).json('Error: ' + err));
 // });
+router.route('/getlist').post((req, res) => {
+  console.log("is this hit?");
+
+  const { body } = req;
+  let {
+    email,
+  } = body;
+  
+  
+  User.find({
+    email: email
+  }, (err, users) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Server error'
+      });
+    } else {
+      return res.send({
+        success: true,
+        message: users[0]
+      });
+    }
+
+
+
+});
+});
+
 router.route('/auth').post((req, res) => {
   console.log("is this hit?");
 
@@ -67,11 +96,10 @@ router.route('/auth').post((req, res) => {
         
       });
     }
-    
-
-
 });
 });
+
+
 
 
 router.route('/add').post((req, res) => {
@@ -144,6 +172,30 @@ router.route('/add').post((req, res) => {
 
 
 });
+
+router.route('/favorite').post((req, res) => {
+
+
+  const { body } = req;
+  let {
+    email,
+    recipe
+  } = body;
+  
+  console.log(email)
+  console.log(recipe)
+
+  User.findOneAndUpdate({email: email}, {$push: {recipelist:recipe}},
+    function (error, success) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(success);
+        }
+    })
+ 
+});
+
 
 
 
