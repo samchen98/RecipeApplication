@@ -122,9 +122,17 @@ export default class AllRecipes extends React.Component {
             // </div>
           ));
         return (
+
+          <div>
+
+            <h1>All</h1>
+
+          
+
           <div style={{"text-align": "center"}}>
-            <br></br>
+         
             {/* <button onClick={
+
                   this.loggout}>
                 logout
             </button> */}
