@@ -10,6 +10,7 @@ const recipeSchema = new Schema({
     ingredients:{type:[String]},
     directions:{type:[String]},
     type:{type:String},
+    img: { data: Buffer, contentType: String}
     //image:{ data: Buffer, contentType: String}
 }, {
   timestamps: true,
