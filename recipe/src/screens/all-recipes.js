@@ -121,7 +121,6 @@ export default class AllRecipes extends React.Component {
           ));
         return (
           <div>
-<<<<<<< HEAD
 <img 
       src="https://www.cookingclassy.com/wp-content/uploads/2018/07/stovetop-macaroni-cheese-1.jpg
       "
@@ -130,10 +129,6 @@ export default class AllRecipes extends React.Component {
             <h1>All</h1>
 
             <button onClick={
-=======
-            <br></br>
-            {/* <button onClick={
->>>>>>> master
                   this.loggout}>
                 logout
             </button> */}
