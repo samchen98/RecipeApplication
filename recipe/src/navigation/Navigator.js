@@ -6,11 +6,28 @@ import { faCarrot } from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Navigator extends React.Component {
+    constructor() {
+        super();
+        this.handlerL = this.handlerL.bind(this);
+        this.state = {
+            isLoggedIn: (localStorage.getItem('loginemail') != null),
+        }
+    }
+
+    handlerL = () => {
+        if(localStorage.getItem('loginemail') != null) {
+            localStorage.removeItem("loginemail")
+            this.setState({ isLoggedIn: (localStorage.getItem('loginemail') != null)});
+        } else {
+            this.setState({ isLoggedIn: (localStorage.getItem('loginemail') != null)});
+        }
+    }
+
     render() { 
         return (
             <div>
             <Navbar bg="light"  variant="light" sticky="top">
-                <Navbar.Brand href="/home" style = {{color: "#fd7e14"}}><FontAwesomeIcon icon={faCarrot}/> APP-NAME</Navbar.Brand>
+                <Navbar.Brand href="/home" style = {{color: "#fd7e14"}}><FontAwesomeIcon icon={faCarrot}/> UNC EATS</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/all-recipes">All Recipes</Nav.Link>
@@ -20,7 +37,9 @@ export default class Navigator extends React.Component {
                 </Nav>
                 <Nav className = "navbar-right">
                     <Nav.Link href="/login">
-                        <Button variant="outline-secondary">Login</Button>
+                        <Button variant="outline-secondary" onClick={this.handlerL}>
+                            {this.state.isLoggedIn? 'Logout' : 'Login'}
+                        </Button>
                     </Nav.Link>
                     <Nav.Link href="/sign-up">
                         <Button variant="outline-dark">Sign-up</Button>

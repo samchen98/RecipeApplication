@@ -7,6 +7,9 @@ const config = require("../config")
 export default function SignUp(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -19,6 +22,8 @@ export default function SignUp(props) {
     console.log(email)
     console.log(password)
     const newUser = {
+      fname: fname,
+      lname: lname,
       email: email,
       password: password
     };
@@ -32,6 +37,24 @@ export default function SignUp(props) {
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
+      <FormGroup controlId="fname" bsSize="large">
+          <div>First name</div>
+          <FormControl
+            autoFocus
+            type="fname"
+            value={fname}
+            onChange={e => setFname(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup controlId="lname" bsSize="large">
+          <div>Last name</div>
+          <FormControl
+            autoFocus
+            type="lname"
+            value={lname}
+            onChange={e => setLname(e.target.value)}
+          />
+        </FormGroup>
         <FormGroup controlId="email" bsSize="large">
           <div>Email</div>
           <FormControl
@@ -50,7 +73,7 @@ export default function SignUp(props) {
           />
         </FormGroup>
         <Button block bsSize="large" disabled={!validateForm()} type="submit">
-          Login
+          Sign-up!
         </Button>
       </form>
     </div>

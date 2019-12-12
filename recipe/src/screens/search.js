@@ -1,6 +1,10 @@
 import React from "react";
-import { Button, FormGroup, FormControl, TextInput } from "react-bootstrap";
+import Card from 'react-bootstrap/Card'
+import { Button } from "react-bootstrap";
 import TagsInput from 'react-tagsinput'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
  
 import 'react-tagsinput/react-tagsinput.css'
 
@@ -41,28 +45,45 @@ export default class Search extends React.Component {
 
   render() {
     const recipes = this.state.recipes.map(recipe => (
-        <div style={{ border: "1px solid black"}} key={recipe.name}>
-          <h3>Name: {recipe.author}</h3>
-          <p>Contact: {recipe.name}</p>
+      <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block"}}>
+      {/* <Card.Img variant="top" src={macncheese} style={{'max-width': "80%", height: "auto"}}/> */}
+      <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
+      <Card.Body>
+        <Card.Title>{recipe.name}</Card.Title>
+        <Card.Text>
+          Preparation time: {recipe.time}<br></br>
+          Servings: {recipe.servings}<br></br>
+          Type: {recipe.type}<br></br>
+          Ingredients: {recipe.ingredients}<br></br>
+          Instructions: {recipe.directions}<br></br>
+        </Card.Text>
+      {/* <Button variant="primary" onClick={this.newfunction.bind(this.recipe)}>Add to favorites</Button> */}
+      </Card.Body>
+      </Card>
+        // <div style={{ border: "1px solid black"}} key={recipe.name}>
+        //   <h3>Name: {recipe.author}</h3>
+        //   <p>Contact: {recipe.name}</p>
         
-        </div>
+        // </div>
       ));
     return (
       <div>
-        <h1>Search page</h1>
+      <br></br>
 
-        
+          <p class="font-weight-light text-center">Type in an ingredient and press enter. When you're done, click search!</p>
 
-        <TagsInput value={this.state.tags} onChange={this.handleChange} />
-        <button onClick={this.testfunction}>
-            hello
-        </button>
+          <TagsInput value={this.state.tags} onChange={this.handleChange} />
+          <br></br>
 
-        {/* <p>Data will be fetched after the button click.</p>
-      <button onClick={this.getEmployees} >Get Employees</button> */}
+          <Button style={{display: "block", "margin-left": "47.5%"}} variant="outline-danger" onClick={this.testfunction}>
+            Search!
+          </Button>
+
+      
       {recipes}
- 
       </div>
+ 
+      
     );
   }
 }

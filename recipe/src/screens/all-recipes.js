@@ -1,4 +1,9 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card'
+import Breakfast from "./photos/Breakfast.jpg"
+import Lunch from "./photos/Lunch.jpg"
+import Dinner from "./photos/Dinner.jpg"
+
 import macncheese from "./photos/Baked-Mac-n-Cheese.jpg"
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
@@ -37,29 +42,29 @@ export default class AllRecipes extends React.Component {
       newfunction = (recipe) => {
 
         var user = localStorage.getItem('loginemail');
-    console.log(user)
-    if(user == null){
-        alert("You must be logged in to favorite recipes")
-       
-    }
-    else{
-        console.log(recipe._id)
-        const newUser = {
-            email: user,
-            recipe: recipe
-          };
-          axios.post(config.serversite + '/users/favorite', newUser)
-          .then(
-              alert("Added to favorites!")
-          );
+        console.log(user)
+        if(user == null){
+            alert("You must be logged in to favorite recipes")
+          
+        }
+        else{
+            console.log(recipe._id)
+            const newUser = {
+                email: user,
+                recipe: recipe
+              };
+              axios.post(config.serversite + '/users/favorite', newUser)
+              .then(
+                  alert("Added to favorites!")
+              );
 
-    }
+        }
         console.log(recipe._id)
         console.log(recipe)
       }
-      loggout(){
-          localStorage.removeItem("loginemail")
-      }
+      // loggout(){
+      //     localStorage.removeItem("loginemail")
+      // }
 
     
       testfunction() {
@@ -86,19 +91,37 @@ export default class AllRecipes extends React.Component {
           
         const recipes = this.state.recipes.map(
             recipe => (
+              <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block"}}>
+
+              
+              {/* <Card.Img variant="top" src={"./photos/"+ recipe.type + ".jpg"}/> */}
+              <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
+              <Card.Body>
+                <Card.Title>{recipe.name}</Card.Title>
+                <Card.Text>
+                  Preparation time: {recipe.time}<br></br>
+                  Servings: {recipe.servings}<br></br>
+                  Type: {recipe.type}<br></br>
+                  Ingredients: {recipe.ingredients}<br></br>
+                  Instructions: {recipe.directions}<br></br>
+                </Card.Text>
+              <Button variant="outline-warning" onClick={this.newfunction.bind(this,recipe)}>Add to favorites</Button>
+              </Card.Body>
+            </Card>
             
-            <div style={{ border: "1px solid black"}} key={recipe.name}>
-              <h3>Name: {recipe.author}</h3>
-              <p>Contact: {recipe.name}</p>
-              <button onClick={
-                  this.newfunction.bind(this,recipe)}>
-                Add to favorite
-            </button>
+            // <div style={{ border: "1px solid black"}} key={recipe.name}>
+            //   <h3>Name: {recipe.author}</h3>
+            //   <p>Contact: {recipe.name}</p>
+            //   <button onClick={
+            //       this.newfunction.bind(this,recipe)}>
+            //     Add to favorite
+            // </button>
             
-            </div>
+            // </div>
           ));
         return (
           <div>
+<<<<<<< HEAD
 <img 
       src="https://www.cookingclassy.com/wp-content/uploads/2018/07/stovetop-macaroni-cheese-1.jpg
       "
@@ -107,17 +130,21 @@ export default class AllRecipes extends React.Component {
             <h1>All</h1>
 
             <button onClick={
+=======
+            <br></br>
+            {/* <button onClick={
+>>>>>>> master
                   this.loggout}>
-                loggout
-            </button>
+                logout
+            </button> */}
             
-{/*     
+          {/*     
             <TagsInput value={this.state.tags} onChange={this.handleChange} />
             <button onClick={this.testfunction}>
                 hello
             </button>
-     */}
-            {/* <p>Data will be fetched after the button click.</p>
+          */}
+          {/* <p>Data will be fetched after the button click.</p>
           <button onClick={this.getEmployees} >Get Employees</button> */}
           {recipes}
      
@@ -125,44 +152,5 @@ export default class AllRecipes extends React.Component {
         );
       }
     
-//     render () {
-//             const style1 = {
-//                 width: '350px',
-//                 height: '350px',
-//             }
-    
-//             const style2 = {
-//                 'text-align': "left",
-//                 width: '750px',
-//             }
-    
-//             const style3 = {
-//                 width: '150px',
-//                 height: '150px',
-//             }
-            
-
-//         return (
-            
-//             <Container>
-//                 <br></br>
-//                 <br></br>
-                
-//                 <h1>All Recipes</h1>
-//                 <br></br>
-//                 <br></br>
-//                 <br></br>
-//                 getAllRecipes
-//                 <RecipeTile/>
-//                 <RecipeTile/>
-//                 <RecipeTile/>
-//                 <RecipeTile/>
-//                 <RecipeTile/>
-//                 <RecipeTile/>
-//             </Container>
-
-            
-// );
-//     }    
 }
 
