@@ -91,7 +91,7 @@ export default class AllRecipes extends React.Component {
           
         const recipes = this.state.recipes.map(
             recipe => (
-              <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block"}}>
+              <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block", 'width': "33%"}}>
 
               
               {/* <Card.Img variant="top" src={"./photos/"+ recipe.type + ".jpg"}/> */}
@@ -120,7 +120,7 @@ export default class AllRecipes extends React.Component {
             // </div>
           ));
         return (
-          <div>
+          <div style={{"text-align": "center"}}>
             <br></br>
             {/* <button onClick={
                   this.loggout}>
