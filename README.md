@@ -11,7 +11,9 @@ Server repo: https://git.heroku.com/pure-stream-74711.git
 The Database can be viewed at https://cloud.mongodb.com/user?n=%2Fv2%2F5deea5e6c56c98bca210bbab&nextHash=%23clusters#/atlas/login
 
 Login: threechen1131@gmail.com
+
 Password: 730097292
+
 Within cluster 0, click on "Collections"
 
 
