@@ -42,6 +42,26 @@ export default class Search extends React.Component {
 
     
   }
+  componentDidMount(){
+    let ing = localStorage.getItem('ingredients') 
+    if(ing!= null){
+      var str = ing.replace(/\s/g, '');
+      var words = str.split(',');
+      console.log(ing)
+      console.log(words)
+  
+      console.log(this.state.tags)
+  
+      this.setState({ tags: words});
+      localStorage.removeItem("ingredients")
+    }
+   
+
+    
+   
+    
+
+  }
 
   render() {
     const recipes = this.state.recipes.map(recipe => (
@@ -72,7 +92,9 @@ export default class Search extends React.Component {
 
           <p class="font-weight-light text-center">Type in an ingredient and press enter. When you're done, click search!</p>
 
-          <TagsInput value={this.state.tags} onChange={this.handleChange} />
+          <TagsInput value={this.state.tags} onChange={this.handleChange} 
+          
+          />
           <br></br>
 
           <Button style={{display: "block", "margin-left": "47.5%"}} variant="outline-danger" onClick={this.testfunction}>
