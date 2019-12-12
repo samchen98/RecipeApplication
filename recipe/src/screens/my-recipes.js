@@ -73,6 +73,11 @@ export default class MyRecipes extends React.Component {
           <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
           <Card.Body>
             <Card.Title>{recipe.name}</Card.Title>
+            <img src= {recipe.image}
+                    alt="new"
+                    width={70} 
+                    height={70}
+      />
             <Card.Text>
               Preparation time: {recipe.time}<br></br>
               Servings: {recipe.servings}<br></br>
