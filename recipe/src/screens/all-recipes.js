@@ -98,6 +98,11 @@ export default class AllRecipes extends React.Component {
               <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
               <Card.Body>
                 <Card.Title>{recipe.name}</Card.Title>
+                <img src= {recipe.image}
+                    alt="new"
+                    width={70} 
+                    height={70}
+      />
                 <Card.Text>
                   Preparation time: {recipe.time}<br></br>
                   Servings: {recipe.servings}<br></br>
@@ -123,28 +128,11 @@ export default class AllRecipes extends React.Component {
           ));
         return (
 
-          <div>
+            <div>
+                
 
             <h1>All</h1>
-
-          
-
-          <div style={{"text-align": "center"}}>
-         
-            {/* <button onClick={
-
-                  this.loggout}>
-                logout
-            </button> */}
-            
-          {/*     
-            <TagsInput value={this.state.tags} onChange={this.handleChange} />
-            <button onClick={this.testfunction}>
-                hello
-            </button>
-          */}
-          {/* <p>Data will be fetched after the button click.</p>
-          <button onClick={this.getEmployees} >Get Employees</button> */}
+   
           {recipes}
      
           </div>
