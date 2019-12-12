@@ -6,7 +6,9 @@ var test = Math.floor((Math.random() * 1000) + 1);
 var test4 = bcrypt.hashSync('' + test, bcrypt.genSaltSync(8), null);
 
 const userSchema = new Schema({
- 
+
+    fname: {type:String},
+    lname: {type:String},
     email: {type: String},
     password: {type: String},
     recipelist:{type: []}

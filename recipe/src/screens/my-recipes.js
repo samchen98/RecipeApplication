@@ -47,7 +47,7 @@ export default class MyRecipes extends React.Component {
 
         console.log(user)
         if(user == null){
-            alert("You must be logged in to view your recipes")
+            // alert("You must be logged in to view your recipes")
         }
         else{
             this.testfunction();
@@ -80,7 +80,7 @@ export default class MyRecipes extends React.Component {
               Ingredients: {recipe.ingredients}<br></br>
               Instructions: {recipe.directions}<br></br>
             </Card.Text>
-          <Button variant="primary" onClick={this.newfunction.bind(this,recipe)}>Add to favorites</Button>
+          {/* <Button variant="primary" onClick={this.newfunction.bind(this.recipe)}>Add to favorites</Button> */}
           </Card.Body>
           </Card>
             // <div style={{ border: "1px solid black"}} key={recipe.name}>

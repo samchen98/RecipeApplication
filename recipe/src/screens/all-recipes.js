@@ -1,5 +1,9 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
+import Breakfast from "./photos/Breakfast.jpg"
+import Lunch from "./photos/Lunch.jpg"
+import Dinner from "./photos/Dinner.jpg"
+
 import macncheese from "./photos/Baked-Mac-n-Cheese.jpg"
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
@@ -38,29 +42,29 @@ export default class AllRecipes extends React.Component {
       newfunction = (recipe) => {
 
         var user = localStorage.getItem('loginemail');
-    console.log(user)
-    if(user == null){
-        alert("You must be logged in to favorite recipes")
-       
-    }
-    else{
-        console.log(recipe._id)
-        const newUser = {
-            email: user,
-            recipe: recipe
-          };
-          axios.post(config.serversite + '/users/favorite', newUser)
-          .then(
-              alert("Added to favorites!")
-          );
+        console.log(user)
+        if(user == null){
+            alert("You must be logged in to favorite recipes")
+          
+        }
+        else{
+            console.log(recipe._id)
+            const newUser = {
+                email: user,
+                recipe: recipe
+              };
+              axios.post(config.serversite + '/users/favorite', newUser)
+              .then(
+                  alert("Added to favorites!")
+              );
 
-    }
+        }
         console.log(recipe._id)
         console.log(recipe)
       }
-      loggout(){
-          localStorage.removeItem("loginemail")
-      }
+      // loggout(){
+      //     localStorage.removeItem("loginemail")
+      // }
 
     
       testfunction() {
@@ -88,7 +92,9 @@ export default class AllRecipes extends React.Component {
         const recipes = this.state.recipes.map(
             recipe => (
               <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block"}}>
-              {/* <Card.Img variant="top" src={macncheese} style={{'max-width': "80%", height: "auto"}}/> */}
+
+              
+              {/* <Card.Img variant="top" src={"./photos/"+ recipe.type + ".jpg"}/> */}
               <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
               <Card.Body>
                 <Card.Title>{recipe.name}</Card.Title>
@@ -99,7 +105,7 @@ export default class AllRecipes extends React.Component {
                   Ingredients: {recipe.ingredients}<br></br>
                   Instructions: {recipe.directions}<br></br>
                 </Card.Text>
-              <Button variant="primary" onClick={this.newfunction.bind(this,recipe)}>Add to favorites</Button>
+              <Button variant="outline-warning" onClick={this.newfunction.bind(this,recipe)}>Add to favorites</Button>
               </Card.Body>
             </Card>
             
@@ -116,10 +122,10 @@ export default class AllRecipes extends React.Component {
         return (
           <div>
             <br></br>
-            <button onClick={
+            {/* <button onClick={
                   this.loggout}>
                 logout
-            </button>
+            </button> */}
             
           {/*     
             <TagsInput value={this.state.tags} onChange={this.handleChange} />
