@@ -30,7 +30,7 @@ export  class Resources extends React.Component {
       this.setState({ ingredients: joined })
     }
     handleChange2(){
-      var joined = this.state.ingredients.concat("Strawberry ", "Blueberry ", "Brussel Sprouts ");
+      var joined = this.state.ingredients.concat("Thyme ", "Spinach ", "Rosemary ");
       this.setState({ ingredients: joined })
     }
     handleChange4(){
@@ -39,7 +39,7 @@ export  class Resources extends React.Component {
     }
     handleChange() {
    
-      var joined = this.state.ingredients.concat('Carrots ', " Parsley ", "Cilantro ", "Thyme ", "Spinach ", "Rosemary ");
+      var joined = this.state.ingredients.concat('Carrots ', " Parsley ", "Cilantro ");
       this.setState({ ingredients: joined })
 
     }

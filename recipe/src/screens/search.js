@@ -29,6 +29,7 @@ export default class Search extends React.Component {
 
 
   testfunction() {
+    console.log("is this hit")
     console.log(this.state.tags);
 
     const newUser = {
@@ -69,6 +70,12 @@ export default class Search extends React.Component {
       {/* <Card.Img variant="top" src={macncheese} style={{'max-width': "80%", height: "auto"}}/> */}
       <Card.Header style={{'text-align': "right"}}>Author: {recipe.author}</Card.Header>
       <Card.Body>
+      <img src= {recipe.image}
+                    alt="new"
+                    width={70} 
+                    height={70}
+      />
+                
         <Card.Title>{recipe.name}</Card.Title>
         <Card.Text>
           Preparation time: {recipe.time}<br></br>
