@@ -34,7 +34,33 @@ export default class AllRecipes extends React.Component {
       handleChange(tags) {
         this.setState({tags});
       }
-    
+      newfunction = (recipe) => {
+
+        var user = localStorage.getItem('loginemail');
+    console.log(user)
+    if(user == null){
+        alert("You must be logged in to favorite recipes")
+       
+    }
+    else{
+        console.log(recipe._id)
+        const newUser = {
+            email: user,
+            recipe: recipe
+          };
+          axios.post(config.serversite + '/users/favorite', newUser)
+          .then(
+              alert("Added to favorites!")
+          );
+
+    }
+        console.log(recipe._id)
+        console.log(recipe)
+      }
+      loggout(){
+          localStorage.removeItem("loginemail")
+      }
+
     
       testfunction() {
         console.log(this.state.tags);
@@ -53,19 +79,32 @@ export default class AllRecipes extends React.Component {
       componentDidMount() {
         this.testfunction();
       }
+
+      
     
       render() {
-        const recipes = this.state.recipes.map(recipe => (
+          
+        const recipes = this.state.recipes.map(
+            recipe => (
+            
             <div style={{ border: "1px solid black"}} key={recipe.name}>
               <h3>Name: {recipe.author}</h3>
               <p>Contact: {recipe.name}</p>
+              <button onClick={
+                  this.newfunction.bind(this,recipe)}>
+                Add to favorite
+            </button>
             
             </div>
           ));
         return (
           <div>
             <h1>All</h1>
-    
+
+            <button onClick={
+                  this.loggout}>
+                loggout
+            </button>
             
 {/*     
             <TagsInput value={this.state.tags} onChange={this.handleChange} />
@@ -121,3 +160,4 @@ export default class AllRecipes extends React.Component {
 // );
 //     }    
 }
+
