@@ -91,7 +91,7 @@ export default class AllRecipes extends React.Component {
           
         const recipes = this.state.recipes.map(
             recipe => (
-              <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block"}}>
+              <Card style={{width: '18rem'}} key={recipe.name} style={{display: "inline-block", 'width': "33%"}}>
 
               
               {/* <Card.Img variant="top" src={"./photos/"+ recipe.type + ".jpg"}/> */}
@@ -102,8 +102,10 @@ export default class AllRecipes extends React.Component {
                   Preparation time: {recipe.time}<br></br>
                   Servings: {recipe.servings}<br></br>
                   Type: {recipe.type}<br></br>
-                  Ingredients: {recipe.ingredients}<br></br>
-                  Instructions: {recipe.directions}<br></br>
+                  Ingredients:  <br></br>
+                  {recipe.ingredients}<br></br>
+                  Instructions: <br></br>
+                  {recipe.directions}<br></br>
                 </Card.Text>
               <Button variant="outline-warning" onClick={this.newfunction.bind(this,recipe)}>Add to favorites</Button>
               </Card.Body>
@@ -120,15 +122,17 @@ export default class AllRecipes extends React.Component {
             // </div>
           ));
         return (
+
           <div>
-<img 
-      src="https://www.cookingclassy.com/wp-content/uploads/2018/07/stovetop-macaroni-cheese-1.jpg
-      "
-      alt="new"
-      />
+
             <h1>All</h1>
 
-            <button onClick={
+          
+
+          <div style={{"text-align": "center"}}>
+         
+            {/* <button onClick={
+
                   this.loggout}>
                 logout
             </button> */}
